@@ -1,12 +1,4 @@
-import {
-  test,
-  beforeAll,
-  afterAll,
-  describe,
-  it,
-  expect,
-  beforeEach,
-} from 'vitest'
+import { beforeAll, afterAll, describe, it, expect, beforeEach } from 'vitest'
 import { execSync } from 'node:child_process'
 import request from 'supertest'
 import { app } from '../src/app'
@@ -108,7 +100,7 @@ describe('Transactions routes', () => {
       })
 
     const summaryResponse = await request(app.server)
-      .get('/transactions')
+      .get('/transactions/summary')
       .set('Cookie', cookies)
       .expect(200)
     expect(summaryResponse.body.summary).toEqual({
